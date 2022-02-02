@@ -1,5 +1,3 @@
-
-
 :root {
   --secondary--backgraund--color: #2f303a;
   --portfolio-background-color: #f5f4fa;
@@ -7,6 +5,7 @@
   --text-decoration-color: #000000;
   --alternative-text-decoration-color: #fff;
   --hero--backgraund--color: rgba(47, 48, 58, 0.4);
+  --apper-image-title-text: rgba(47, 48, 58, 0.8);
   --footer-icon-bgcolor: rgba(255, 255, 255, 0.1);
   --main-link-color: #212121;
   --accent-link-color: #2196f3;
@@ -14,6 +13,8 @@
   --heater-contact-text-color: #757575;
   --footer-contact-text-color: rgba(255, 255, 255, 0.6);
   --border-color: #ececec;
+  --overlay-color: rgba(33, 150, 243, 0.9);
+  --backdrop-color: rgba(0, 0, 0, 0.2);
 }
 
 body {
@@ -154,6 +155,27 @@ img {
 .site-nav-link:hover,
 .site-nav-link:focus {
   color: var(--accent-link-color);
+  transition-duration: 250ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* .site-nav .hover-item:hover::after {
+  opacity: 1;
+  
+} */
+
+.hover-item::after {
+  content: '';
+  width: 100%;
+  display: block;
+  height: 2px;
+  background-color: var(--accent-link-color);
+  opacity: 0;
+  border-radius: 2px;
+}
+
+.hover-item.current::after {
+  opacity: 1;
 }
 
 .header-contact-list-icon {
@@ -201,6 +223,56 @@ img {
   text-transform: uppercase;
 }
 
+/*---------------- HERO beckdrop, modal ------------------- */
+
+.hero-beckdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  height: 100%;
+  width: 100%;
+  background: var(--backdrop-color);
+  transition-duration: 250ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.hero-beckdrop.is-hidden {
+  opacity: 0;
+  pointer-events: none;
+  visibility: hidden;
+}
+.hero-modal {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  min-width: 500px;
+  min-height: 550px;
+  background: var(--alternative-text-decoration-color);
+  box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 1px 1px rgba(0, 0, 0, 0.14),
+    0px 2px 1px rgba(0, 0, 0, 0.2);
+  border-radius: 4px;
+}
+
+.hero-icon-close {
+  position: absolute;
+  top: 0;
+  right: 0;
+  height: 20px;
+  width: 20px;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.hero-icon-close:hover,
+.hero-icon-close:focus {
+  fill: var(--accent-icon-color);
+  transition-duration: 250ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
 /* ----------------------HERO BUTTON---------------------- */
 
 .hero-button {
@@ -223,6 +295,8 @@ img {
 .hero-button:focus {
   color: var(--main-link-color);
   background-color: var(--accent-link-color);
+  transition-duration: 250ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 /* -------------------ADVANTAGE SECTION--------------------*/
@@ -294,6 +368,32 @@ img {
   display: flex;
 }
 
+.image-item {
+  position: relative;
+}
+
+.apper-image-item {
+  position: absolute;
+  width: 370px;
+  height: 70px;
+  background-color: var(--apper-image-title-text);
+  bottom: 0;
+  display: block;
+  padding: 27px 0 27px;
+}
+
+.apper-image-title {
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 14px;
+  line-height: 1.14;
+  text-align: center;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  color: var(--alternative-text-decoration-color);
+}
+
 /*---------------------OUR TEAM SECTION--------------------- */
 
 .team-section {
@@ -360,11 +460,15 @@ img {
 .team-section-link:focus {
   background-color: var(--accent-link-color);
   border-radius: 50%;
+  transition-duration: 250ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .team-section-item:hover .team-social-icon,
 .team-section-link:focus .team-social-icon {
   fill: var(--alternative-text-decoration-color);
+  transition-duration: 250ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .team-social-icon {
@@ -408,6 +512,8 @@ img {
 .client-section-link:focus {
   fill: var(--accent-link-color);
   border-color: var(--accent-link-color);
+  transition-duration: 250ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 /*---------------------- FILTER BUTTON---------------------- */
@@ -440,6 +546,8 @@ img {
   color: var(--alternative-text-decoration-color);
   box-shadow: 0px 3px 1px rgba(0, 0, 0, 0.1), 0px 1px 2px rgba(0, 0, 0, 0.08),
     0px 2px 2px rgba(0, 0, 0, 0.12);
+  transition-duration: 250ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 /*----------------------PORTFOLIO PAGE---------------------- */
@@ -457,10 +565,13 @@ img {
 .windows-portfolio-link:focus {
   box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.12), 0px 4px 4px rgba(0, 0, 0, 0.06),
     1px 4px 6px rgba(0, 0, 0, 0.16);
+  transition-duration: 250ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .windows-portfolio-list {
   margin: 0 30px 30px 0;
+  position: relative;
 }
 
 .windows-portfolio-list:nth-child(3n) {
@@ -471,11 +582,48 @@ img {
   margin-bottom: 0;
 }
 
+.windows-portfolio-link:hover .portfolio-overlay,
+.windows-portfolio-link:focus .portfolio-overlay {
+  opacity: 1;
+
+  transform: translatey(0);
+}
+.portfolio-overlay {
+  opacity: 0;
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: block;
+  width: 100%;
+  height: 100%;
+  padding: 63px 17px 63px 31px;
+  background-color: var(--overlay-color);
+  transform: translatey(100%);
+  transition-duration: 250ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.portfolio-overlay-text {
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 18px;
+  line-height: 1.56;
+  letter-spacing: 0.03em;
+  color: var(--alternative-text-decoration-color);
+}
+
+.portfolio-overflow-hidden {
+  overflow: hidden;
+  position: relative;
+}
+
 .portfolio-section-img {
   display: block;
 }
 
 .portfolio-presection {
+  position: relative;
   padding: 20px 24px;
   border: 1px solid var(--border-color);
   border-top: none;
@@ -534,7 +682,7 @@ img {
   color: var(--alternative-text-decoration-color);
 }
 
-.footer-container-socials{
+.footer-container-socials {
   margin-left: 70px;
 }
 
@@ -546,6 +694,8 @@ img {
 .footer-contacts .conection:hover,
 .footer-contacts .conection:focus {
   color: var(--accent-link-color);
+  transition-duration: 250ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .footer-section-list {
@@ -567,6 +717,8 @@ img {
 .footer-section-link:focus {
   background-color: var(--accent-link-color);
   border-radius: 50%;
+  transition-duration: 250ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .footer-section-link:hover .footer-social-icon,
