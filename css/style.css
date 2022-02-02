@@ -227,8 +227,7 @@ img {
   height: 100%;
   width: 100%;
   background: var(--backdrop-color);
-  transition-duration: 250ms;
-  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition: opacity 250ms, visibility 250ms;
 }
 
 .hero-beckdrop.is-hidden {
@@ -236,6 +235,7 @@ img {
   pointer-events: none;
   visibility: hidden;
 }
+
 .hero-modal {
   position: absolute;
   top: 50%;
@@ -579,9 +579,9 @@ img {
 .windows-portfolio-link:hover .portfolio-overlay,
 .windows-portfolio-link:focus .portfolio-overlay {
   opacity: 1;
-
   transform: translatey(0);
 }
+
 .portfolio-overlay {
   opacity: 0;
   position: absolute;
@@ -593,6 +593,7 @@ img {
   padding: 63px 17px 63px 31px;
   background-color: var(--overlay-color);
   transform: translatey(100%);
+
   transition-duration: 250ms;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
